@@ -18,11 +18,20 @@
 // In the ES6 spec, files are "modules" and do not share a top-level scope
 // `var` declarations will only exist globally where explicitly defined
 // import VideoPlayer from 'module';
-// import VideoPlayer from './VideoPlayer';
+import VideoPlayer from './VideoPlayer.js';
+import VideoList from './VideoList.js';
+
+
+
  
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    // this.state = {
+    //   currentPlayerVideo: window.exampleVideoData[0],
+    //   videos: window.exampleVideoData
+    // }
   }
   render() {
     return (
@@ -40,14 +49,14 @@ class App extends React.Component {
           <div className="col-md-7">
             <div>
               <h5>
-                <em>videoPlayer</em> view goes here
+                <VideoPlayer video={this.props.data[0]}/>
               </h5>
             </div>
           </div>
           <div className="col-md-5">
             <div>
               <h5>
-                <em>videoList</em> view goes here
+                <VideoList videos={this.props.data}/>
               </h5>
             </div>
           </div>
